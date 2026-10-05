@@ -1,0 +1,9 @@
+:root { color-scheme: light dark; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+body { margin: 0; min-width: 280px; }
+main { padding: 16px; }
+h1 { font-size: 18px; margin: 0 0 8px; }
+p { font-size: 13px; line-height: 1.5; }
+dl { margin: 16px 0; }
+dl div { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid color-mix(in srgb, currentColor 20%, transparent); }
+dt, dd { margin: 0; }
+.note { opacity: .7; }

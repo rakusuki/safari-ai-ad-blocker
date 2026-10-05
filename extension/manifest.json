@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Safari AI Ad Blocker",
+  "version": "0.1.0",
+  "description": "Lightweight Safari ad blocker with rule-based blocking and automatic DOM ad detection, designed for iPhone 12 mini and later.",
+  "permissions": [
+    "declarativeNetRequest",
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["detector.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Safari AI Ad Blocker",
+    "default_popup": "popup.html"
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "base_rules",
+        "enabled": true,
+        "path": "rules/base-rules.json"
+      }
+    ]
+  }
+}
