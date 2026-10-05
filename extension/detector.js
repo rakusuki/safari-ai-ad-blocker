@@ -32,6 +32,7 @@
 
   function joinedAttributes(element) {
     const attrs = Array.from(element.attributes || [])
+      .filter(attribute => !attribute.name.startsWith("data-safari-ai-ad-"))
       .map((attribute) => `${attribute.name}=${attribute.value}`)
       .join(" ");
     return `${element.id || ""} ${element.className || ""} ${attrs}`;

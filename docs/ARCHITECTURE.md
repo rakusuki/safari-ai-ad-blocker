@@ -28,3 +28,16 @@ Never embed an LLM API secret in the Safari extension bundle. A future provider 
 - an on-device Core ML model when the model size/performance is appropriate.
 
 Only compact candidate features should be sent, not complete browsing history or full page content by default.
+
+
+## v0.2.0 local feedback layer
+
+`rules.js` defines site state and exact-host DNR allow rules. Each `site:<hostname>` key stores allowlisted, block selectors, allow selectors, and falsePositives count. No page text, feature vectors, URL paths, timestamps, or remote telemetry are stored.
+
+The background service worker serializes mutations so multiple tabs cannot lose rules or counters. Site allowlist changes rebuild priority-100 main-frame allowAllRequests dynamic rules; DNR failure rolls back the local preference and attempts reconciliation. Startup also reconciles stored preferences.
+
+The content script loads rules before its first scan and watches local storage changes. Site allowlist and element allow rules take precedence over manual and automatic hiding. A permitted descendant also protects its ancestor to prevent indirect hiding. Original inline display and priority are held in memory and restored. Manual selectors apply to ordinary elements outside heuristic candidates as well. Mutation scans are debounced by 350 ms; repeated scans do not recount unchanged hidden/review elements.
+
+Popup feedback references ephemeral in-memory element IDs. Page labels use textContent, never injected HTML. The picker saves a unique escaped ID or structural selector after confirmation. IDs and DOM paths can become stale when a site changes. Frame contents and shadow-root contents are outside the current DOM traversal.
+
+The v0.2.0 runtime uses no network ML/LLM calls. The provider ideas above are future work.

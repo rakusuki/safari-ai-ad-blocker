@@ -7,3 +7,10 @@ dl { margin: 16px 0; }
 dl div { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid color-mix(in srgb, currentColor 20%, transparent); }
 dt, dd { margin: 0; }
 .note { opacity: .7; }
+
+button { padding: 9px; margin: 4px 2px; cursor: pointer; }
+button:disabled { cursor: default; opacity: .5; }
+ul { padding: 0; max-height: 300px; overflow: auto; }
+li { list-style: none; padding: 8px 0; border-bottom: 1px solid #888; }
+li span { display: block; overflow-wrap: anywhere; }
+#status { min-height: 1.5em; }

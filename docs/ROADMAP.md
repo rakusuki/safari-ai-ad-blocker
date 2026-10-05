@@ -7,12 +7,13 @@
 - Dynamic-page rescans
 - Local counters
 
-## v0.2.0
+## v0.2.0 (implemented)
 
-- User "block this" / "not an ad" feedback
+- User "block this" / "not an ad" feedback (popup and touch picker)
 - Per-site allowlist
 - Persistent selector rules
-- False-positive telemetry stored locally only
+- False-positive selectors and counts stored locally only
+- jsdom regression suite and GitHub Actions (Safari device QA remains manual)
 
 ## v0.3.0
 

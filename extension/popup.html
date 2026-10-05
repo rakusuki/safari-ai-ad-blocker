@@ -1,21 +1,20 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Safari AI Ad Blocker</title>
-  <link rel="stylesheet" href="popup.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Safari AI Ad Blocker</title><link rel="stylesheet" href="popup.css">
 </head>
-<body>
-  <main>
-    <h1>Safari AI Ad Blocker</h1>
-    <p>高速ルールブロック + 自動DOM広告検知</p>
-    <dl>
-      <div><dt>自動非表示</dt><dd id="blocked">0</dd></div>
-      <div><dt>要確認候補</dt><dd id="review">0</dd></div>
-    </dl>
-    <p class="note">v0.1.0では端末内の軽量判定のみを使用します。</p>
-  </main>
-  <script src="popup.js"></script>
-</body>
+<body><main>
+  <h1>Safari AI Ad Blocker</h1>
+  <p id="host"></p>
+  <dl><div><dt>累計非表示</dt><dd id="blocked">0</dd></div><div><dt>累計確認候補</dt><dd id="review">0</dd></div></dl>
+  <button id="allow-site" disabled>このサイトを許可</button>
+  <button id="pick" disabled>要素を選んでブロック</button>
+  <button id="reset" disabled>このサイトのルールを削除</button>
+  <button id="refresh" disabled>一覧更新</button>
+  <p id="status" role="status"></p>
+  <ul id="items"></ul>
+  <p class="note">非表示要素の「広告ではない」で復元し、同じホストの許可ルールとして保存します。サイト全体の許可は通信ルールにも適用されます。切替後はページを再読み込みしてください。</p>
+  <p class="note">v0.2.0：設定・誤検知件数は端末内だけに保存します。</p>
+</main><script src="rules.js"></script><script src="popup.js"></script></body>
 </html>
